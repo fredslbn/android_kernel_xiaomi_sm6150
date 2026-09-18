@@ -841,9 +841,9 @@ KBUILD_CFLAGS   += -ffp-contract=fast
 # Enable hot cold split optimization
 KBUILD_CFLAGS	+= -mllvm -hot-cold-split=true
 # Enable MLGO optimizations for register allocation
-KBUILD_CFLAGS	+= -mllvm -regalloc-enable-advisor=release
-KBUILD_LDFLAGS	+= -mllvm -regalloc-enable-advisor=release
-KBUILD_LDFLAGS	+= -mllvm -enable-ml-inliner=release
+# KBUILD_CFLAGS	+= -mllvm -regalloc-enable-advisor=release
+# KBUILD_LDFLAGS	+= -mllvm -regalloc-enable-advisor=release
+# KBUILD_LDFLAGS	+= -mllvm -enable-ml-inliner=release
 
 # Quiet clang warning: comparison of unsigned expression < 0 is always false
 
@@ -862,8 +862,8 @@ KBUILD_CFLAGS += $(call cc-disable-warning, unused-but-set-variable)
 
 ifeq ($(ld-name),lld)
 LDFLAGS += --lto-O3
-LDFLAGS += -mllvm -regalloc-enable-advisor=release
-LDFLAGS += -mllvm -enable-ml-inliner=release
+# LDFLAGS += -mllvm -regalloc-enable-advisor=release
+# LDFLAGS += -mllvm -enable-ml-inliner=release
 endif
 
 KBUILD_CFLAGS += $(call cc-disable-warning, unused-const-variable)
