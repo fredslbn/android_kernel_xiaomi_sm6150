@@ -950,10 +950,10 @@ asmlinkage long sys_move_mount(int from_dfd, const char __user *from_path,
 			       int to_dfd, const char __user *to_path,
 			       unsigned int ms_flags);
 
-extern long do_faccessat(int dfd, const char __user *filename, int mode);
+long do_faccessat(int dfd, const char __user *filename, int mode, int flags);
 static inline long ksys_access(const char __user *filename, int mode)
 {
-	return do_faccessat(AT_FDCWD, filename, mode);
+	return do_faccessat(AT_FDCWD, filename, mode, 0);
 }
 
 #endif
